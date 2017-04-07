@@ -19,6 +19,8 @@ Route::get('/admin', function () {
     return view('admin');
 });
 
+
+/* admin makanan dan minuman */
 Route::get('/addFoods', function () {
     return view('addFood');
 });
@@ -31,6 +33,10 @@ Route::get('/addDrinks', function () {
 
 Route::post('/addDrinks', 'DrinkController@addMenu');
 
+/* admin liat menu */
+Route::get('/adminmenu', 'MenuController@showMenu');
+
+/*customer status*/
 Route::get('/customerStatus', function () {
     return view('customerStatus');
 });

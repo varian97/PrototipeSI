@@ -14,6 +14,7 @@
         			</div>
               <nav>
                 <ul>
+                  <li><a href="/adminmenu">Menu</a></li>
                   <li><a href="/addFoods">Add Foods</a></li>
                   <li><a href="/addDrinks">Add Drinks</a></li>
                   <li><a href="/customerStatus">Customer Status</a></li>
@@ -23,7 +24,7 @@
       </header>
 
       @yield('content')
-      
+
       <footer>
       		<div class="wrapper">
       			<section class="adress">
