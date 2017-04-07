@@ -35,6 +35,7 @@ Route::post('/addDrinks', 'DrinkController@addMenu');
 
 /* admin liat menu */
 Route::get('/adminmenu', 'MenuController@showMenu');
+Route::get('/adminmenu/{{id}}//edit', 'MenuController@editMenu()');
 
 /*customer status*/
 Route::get('/customerStatus', function () {
