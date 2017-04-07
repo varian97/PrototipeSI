@@ -265,13 +265,64 @@ header nav ul li a:hover{
     margin-left: 20px;
 }
 
+.customerTable{
+  margin:auto;
+  width:80%;
+  font-size: 30px;
+}
 
+table tr td button {
+    background-color: #f77307; /* Green */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    border-radius: 10px;
+    vertical-align: middle;
+}
 
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
 
+th, td {
+    text-align: center;
+    padding: 20px;
+    font-family: sans-serif;
+}
 
+tr:nth-child(even){background-color: #d4ddd5;}
+tr:nth-child(odd){background-color: #717a72;}
 
+th {
+    background-color: #4CAF50;
+    color: white;
+}
 
-
+/* order menu */
+.menuTable{
+  margin:auto;
+  width:60%;
+  font-size: 30px;
+}
+.qty {
+  margin:auto;
+  width:20%;
+  text-align: center;
+}
+.orderBtn {
+  font-size: 30px;
+  margin:auto;
+  width:100%;
+}
+.centerBtn {
+  margin:auto;
+  width:20%;
+}
 
 /*    menu    */
 .menu{

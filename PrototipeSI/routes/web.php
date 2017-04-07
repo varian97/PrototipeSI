@@ -23,9 +23,13 @@ Route::get('/addFoods', function () {
     return view('addFood');
 });
 
+Route::post('/addFoods', 'FoodController@addMenu');
+
 Route::get('/addDrinks', function () {
     return view('addDrinks');
 });
+
+Route::post('/addDrinks', 'DrinkController@addMenu');
 
 Route::get('/customerStatus', function () {
     return view('customerStatus');
@@ -35,8 +39,13 @@ Route::get('/check', function(){
 	return view('user/checkorder');
 });
 
-Route::post('/order', function(){
-	$id = Input::get('orderid');
-	$array = array('orderid' => $id);
-	return view('user/order', $array);
+Route::post('/orderstatus', function(Request $request){
+
+	//$id = $request->orderid;
+	//$array = array('orderid' => $id);
+	return view('user/orderstatus');
+});
+
+Route::get('/order', function(){
+	return view('user.order');
 });
