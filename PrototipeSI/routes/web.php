@@ -35,6 +35,6 @@ Route::get('/checkorder', function(){
 	return view('user/checkorder.blade.php');
 });
 
-Route::post('/order', function()){
-	return view('user/'.$id)
+Route::get('/order', function(){
+	return view('user.order');
 });
