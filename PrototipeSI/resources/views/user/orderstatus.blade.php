@@ -1,4 +1,4 @@
-@extends('layouts.adminPage')
+@extends('user._header')
 
 @section('content')
 
@@ -47,6 +47,13 @@
           </table>
         </div>
         <br><br><br><br>
+        <form>
+          <div class="centerBtn">
+            <input type="hidden" name="id" value="1">
+            <input type="submit" value="CANCEL" class="orderBtn">
+         </div>
+        </form>
+        
     </div>
     </div>
 </section>
