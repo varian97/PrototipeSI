@@ -5,6 +5,8 @@
 <section class="hero">
     <div class="caption" background="{{asset('img/hero.jpg')}}">
       <form method="POST" action="">
+
+        <br>
         <h3>Foods</h3>
         <div class = "menuTable">
           <table>
@@ -46,6 +48,16 @@
             </tr>
           </table> 
         </div>
+        <br><br><br><br>
+        <select name="mejaRuang" class="dropDownLeft">
+          <option value="empty">Nomor Meja/Ruang</option>
+          <option value="M01">Meja 01</option>
+          <option value="M02">Meja 02</option>
+          <option value="M03">Meja 03</option>
+          <option value="M04">Meja 04</option>
+          <option value="R01">Ruang 01</option>
+          <option value="R02">Ruang 02</option>
+        </select>
         <br><br><br><br>
         <div class="centerBtn">
          <input type="submit" value="ORDER" class="orderBtn">

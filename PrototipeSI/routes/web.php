@@ -38,3 +38,19 @@ Route::get('/checkorder', function(){
 Route::get('/order', function(){
 	return view('user.order');
 });
+
+Route::get('/confirm', function(){
+	return view('user.confirmorder');
+});
+
+Route::post('/confirm', function(){
+	return view('user.confirmorder');
+});
+
+Route::get('/confirmed', function(){
+	return view('user.confirmed');
+});
+
+Route::post('/confirmed', function(){
+	return view('user.confirmed');
+});
