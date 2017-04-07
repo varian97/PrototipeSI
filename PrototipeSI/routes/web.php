@@ -30,3 +30,11 @@ Route::get('/addDrinks', function () {
 Route::get('/customerStatus', function () {
     return view('customerStatus');
 });
+
+Route::get('/checkorder', function(){
+	return view('user/checkorder.blade.php');
+});
+
+Route::post('/order', function()){
+	return view('user/'.$id)
+});
