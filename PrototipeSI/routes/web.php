@@ -35,6 +35,7 @@ Route::post('/addDrinks', 'DrinkController@addMenu');
 
 /* admin liat menu */
 Route::get('/adminmenu', 'MenuController@showMenu');
+Route::get('/adminmenu/{{id}}//edit', 'MenuController@editMenu()');
 
 /*customer status*/
 Route::get('/customerStatus', function () {
@@ -54,4 +55,20 @@ Route::post('/orderstatus', function(Request $request){
 
 Route::get('/order', function(){
 	return view('user.order');
+});
+
+Route::get('/confirm', function(){
+	return view('user.confirmorder');
+});
+
+Route::post('/confirm', function(){
+	return view('user.confirmorder');
+});
+
+Route::get('/confirmed', function(){
+	return view('user.confirmed');
+});
+
+Route::post('/confirmed', function(){
+	return view('user.confirmed');
 });

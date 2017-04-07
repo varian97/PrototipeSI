@@ -13,6 +13,10 @@ class MenuController extends Controller
     return view('/adminmenu', ['food'=> $food, 'drink'=>$drink]);
   }
 
+  public function showEditForm($id) {
+    
+  }
+
   public function editMenu() {
 
   }
