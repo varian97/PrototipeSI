@@ -23,7 +23,7 @@
       </header>
 
       @yield('content')
-
+      
       <footer>
       		<div class="wrapper">
       			<section class="adress">
