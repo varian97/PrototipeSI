@@ -26,3 +26,7 @@ Route::get('/addFoods', function () {
 Route::get('/addDrinks', function () {
     return view('addDrinks');
 });
+
+Route::get('/customerStatus', function () {
+    return view('customerStatus');
+});

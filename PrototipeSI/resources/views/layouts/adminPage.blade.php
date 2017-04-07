@@ -16,7 +16,7 @@
                 <ul>
                   <li><a href="/addFoods">Add Foods</a></li>
                   <li><a href="/addDrinks">Add Drinks</a></li>
-                  <li><a href="">Customer Status</a></li>
+                  <li><a href="/customerStatus">Customer Status</a></li>
                 </ul>
               </nav>
           </div>
