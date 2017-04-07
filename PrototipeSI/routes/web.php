@@ -42,3 +42,7 @@ Route::get('/checkorder', function(){
 Route::post('/order', function(){
 	return view('user/'.$id);
 });
+
+Route::get('/order', function(){
+	return view('user.order');
+});

@@ -303,6 +303,27 @@ th {
     color: white;
 }
 
+/* order menu */
+.menuTable{
+  margin:auto;
+  width:60%;
+  font-size: 30px;
+}
+.qty {
+  margin:auto;
+  width:20%;
+  text-align: center;
+}
+.orderBtn {
+  font-size: 30px;
+  margin:auto;
+  width:100%;
+}
+.centerBtn {
+  margin:auto;
+  width:20%;
+}
+
 /*    menu    */
 .menu{
     width: 100%;

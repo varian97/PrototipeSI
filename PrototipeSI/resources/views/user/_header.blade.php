@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title> Admin Page </title>
+    <title> Eduplex </title>
     <link href="{{ asset('css/main.css') }}" rel="stylesheet">
     <link href="{{ asset('css/reset.css') }}" rel="stylesheet">
   </head>
@@ -23,7 +23,7 @@
       </header>
 
       @yield('content')
-      
+
       <footer>
       		<div class="wrapper">
       			<section class="adress">
