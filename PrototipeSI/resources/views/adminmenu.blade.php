@@ -15,8 +15,8 @@
           <tr>
             <td>{{$item->Deskripsi}}</td>
             <td>{{$item->Harga}} </td>
-            <td><a href="/adminmenu/{{$item->ID_Makanan_Minuman}}/edit"><button type="button">Edit</button></a>
-              <a href="/adminmenu/{{$item->ID_Makanan_Minuman}}"><button type="button">Delete</button></a></td>
+            <td><a href="/adminmenu/{{$item->id}}"><button type="button">Edit</button></a>
+              <a href=""><button type="button">Delete</button></a></td>
           </tr>
         @endforeach
       </table>

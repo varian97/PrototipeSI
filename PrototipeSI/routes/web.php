@@ -33,9 +33,12 @@ Route::get('/addDrinks', function () {
 
 Route::post('/addDrinks', 'DrinkController@addMenu');
 
+/* admin mw edit menu*/
+Route::put('/adminmenu/{id}/update', 'MenuController@editMenu');
+Route::get('/adminmenu/{id}', 'MenuController@showEditForm');
+
 /* admin liat menu */
 Route::get('/adminmenu', 'MenuController@showMenu');
-Route::get('/adminmenu/{{id}}//edit', 'MenuController@editMenu()');
 
 /*customer status*/
 Route::get('/customerStatus', function () {
