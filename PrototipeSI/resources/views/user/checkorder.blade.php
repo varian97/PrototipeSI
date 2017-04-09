@@ -1,18 +1,19 @@
-@extends('layouts.adminPage')
+@extends('user._header')
 
 @section('content')
 
 <section class="hero">
     <div class="caption" background="{{asset('img/hero.jpg')}}">
-      <h3>Check Order</h3>
+      <h3>Check Your Order</h3>
       <h4>
-          <form method="POST" action="/order">
-              Drink Name : <input type="text" name="foodname"><br><br>
-              Price      : <input type="text" name="price"><br><br>
-              <input type="submit" value="Add Drink">
+          <form method="POST" action="/orderstatus">
+              {{ csrf_field() }}
+              Order ID   : <input type="text" name="orderid"><br><br>
+              <input type="submit" value="Check Order">
           </form>
       </h4>
     </div>
 </section>
 
 @endsection
+

@@ -12,7 +12,7 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user/userdashboard');
 });
 
 Route::get('/admin', function () {
@@ -45,12 +45,15 @@ Route::get('/customerStatus', function () {
     return view('customerStatus');
 });
 
-Route::get('/checkorder', function(){
-	return view('user/checkorder.blade.php');
+Route::get('/check', function(){
+	return view('user/checkorder');
 });
 
-Route::post('/order', function(){
-	return view('user/'.$id);
+Route::post('/orderstatus', function(Request $request){
+
+	//$id = $request->orderid;
+	//$array = array('orderid' => $id);
+	return view('user/orderstatus');
 });
 
 Route::get('/order', function(){

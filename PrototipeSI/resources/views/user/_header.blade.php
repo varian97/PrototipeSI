@@ -14,9 +14,9 @@
         			</div>
               <nav>
                 <ul>
-                  <li><a href="/home">Home</a></li>
+                  <li><a href="/">Home</a></li>
                   <li><a href="/order">Order</a></li>
-                  <li><a href="/check">CheckOrder</a></li>
+                  <li><a href="/check">Check Order</a></li>
                 </ul>
               </nav>
           </div>
