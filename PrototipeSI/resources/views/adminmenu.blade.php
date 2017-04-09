@@ -34,6 +34,7 @@
 
 
     <h3>Beverages</h3>
+    <br>
     <div class = "menuTable">
       <table>
         <tr>
