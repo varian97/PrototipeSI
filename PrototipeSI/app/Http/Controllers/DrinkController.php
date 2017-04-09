@@ -14,6 +14,6 @@ class DrinkController extends Controller
     $drink->Jenis = "minuman";
     $drink->save();
 
-    return redirect('admin');
+    return redirect('adminmenu');
   }
 }

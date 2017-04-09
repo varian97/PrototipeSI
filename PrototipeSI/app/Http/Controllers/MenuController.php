@@ -28,7 +28,9 @@ class MenuController extends Controller
     return redirect('adminmenu');
   }
 
-  public function deleteMenu() {
-
+  public function deleteMenu($id) {
+    $menu = ModelMakananMinuman::find($id);
+    $menu->delete();
+    return redirect('adminmenu');
   }
 }

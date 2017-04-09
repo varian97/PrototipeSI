@@ -37,6 +37,9 @@ Route::post('/addDrinks', 'DrinkController@addMenu');
 Route::put('/adminmenu/{id}/update', 'MenuController@editMenu');
 Route::get('/adminmenu/{id}', 'MenuController@showEditForm');
 
+/*admin delete*/
+Route::delete('/adminmenu/{id}', 'MenuController@deleteMenu');
+
 /* admin liat menu */
 Route::get('/adminmenu', 'MenuController@showMenu');
 

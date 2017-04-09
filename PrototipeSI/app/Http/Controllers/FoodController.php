@@ -14,6 +14,6 @@ class FoodController extends Controller
       $food->Jenis = "makanan";
       $food->save();
 
-      return redirect('admin');
+      return redirect('adminmenu');
     }
 }
