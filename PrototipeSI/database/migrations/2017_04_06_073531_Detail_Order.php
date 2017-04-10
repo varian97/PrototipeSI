@@ -15,7 +15,7 @@ class DetailOrder extends Migration
           $table->foreign('ID_Order')->references('ID_Order')->on('Order');
 
           $table->unsignedInteger('ID_Makanan_Minuman');
-          $table->foreign('ID_Makanan_Minuman')->references('ID_Makanan_Minuman')->on('MakananMinuman');
+          $table->foreign('ID_Makanan_Minuman')->references('id')->on('MakananMinuman');
 
           $table->unsignedInteger('Total_Harga');
           $table->unsignedInteger('Jumlah');

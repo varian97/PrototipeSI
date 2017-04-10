@@ -9,7 +9,7 @@ class MakananMinuman extends Migration
     public function up()
     {
       Schema::create('MakananMinuman', function (Blueprint $table) {
-          $table->increments('ID_Makanan_Minuman');
+          $table->increments('id');
           $table->unsignedInteger('Harga');
           $table->string('Jenis');
           $table->string('Deskripsi');

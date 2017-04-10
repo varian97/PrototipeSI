@@ -4,13 +4,15 @@
 
 <section class="hero">
     <div class="caption" background="{{asset('img/hero.jpg')}}">
-      <h3>Add Food</h3>
+      <h3>Edit Item</h3>
       <h4>
-          <form method="POST" action="/addFoods">
+          <form method="POST" action="/adminmenu/{{$menu->id}}/update">
               {{ csrf_field() }}
-              Food Name : <input type="text" name="foodname"><br><br>
-              Price     : <input type="text" name="price"><br><br>
-              <input type="submit" value="Add Food">
+              Menu Name : <input type="text" name="foodname" value="{{$menu->Deskripsi}}"><br><br>
+              Price     : <input type="text" name="price" value="{{$menu->Harga}}"><br><br>
+              Category  : <input type="text" name="category" value="{{$menu->Jenis}}"><br><br>
+              <input type="submit" value="Edit">
+              <input type="hidden" name="_method" value="PUT">
           </form>
       </h4>
     </div>

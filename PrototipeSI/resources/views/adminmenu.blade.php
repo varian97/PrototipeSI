@@ -15,8 +15,17 @@
           <tr>
             <td>{{$item->Deskripsi}}</td>
             <td>{{$item->Harga}} </td>
-            <td><a href="/adminmenu/{{$item->ID_Makanan_Minuman}}/edit"><button type="button">Edit</button></a>
-              <a href="/adminmenu/{{$item->ID_Makanan_Minuman}}"><button type="button">Delete</button></a></td>
+            <td>
+              <form method="" action="/adminmenu/{{$item->id}}">
+                  {{ csrf_field() }}
+                  <input type="submit" value="Edit">
+              </form>
+              <form method="POST" action="/adminmenu/{{$item->id}}">
+                  {{ csrf_field() }}
+                  <input type="submit" value="Delete">
+                  <input type="hidden" name="_method" value="DELETE">
+              </form>
+            </td>
           </tr>
         @endforeach
       </table>
@@ -25,6 +34,7 @@
 
 
     <h3>Beverages</h3>
+    <br>
     <div class = "menuTable">
       <table>
         <tr>
@@ -36,7 +46,17 @@
           <tr>
             <td>{{$item->Deskripsi}}</td>
             <td>{{$item->Harga}}</td>
-            <td><button type="button">Edit</button> <button type="button">Delete</button></td>
+            <td>
+              <form method="" action="/adminmenu/{{$item->id}}">
+                {{ csrf_field() }}
+                <input type="submit" value="Edit">
+              </form>
+              <form method="POST" action="/adminmenu/{{$item->id}}">
+                  {{ csrf_field() }}
+                  <input type="submit" value="Delete">
+                  <input type="hidden" name="_method" value="DELETE">
+              </form>
+            </td>
           </tr>
         @endforeach
       </table>
