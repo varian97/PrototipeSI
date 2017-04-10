@@ -70,6 +70,19 @@ class OrderController extends Controller
       }
     }
 
+    foreach ($drink as $item) {
+      $qty = $request->input($item->id, 0);
+      if($qty>0) {
+        $detailOrder = new ModelDetailOrder;
+        $detailOrder->ID_Order = $id;
+        $detailOrder->ID_Makanan_Minuman = $item->id;
+        $detailOrder->Jumlah = $qty;
+        $detailOrder->Total_Harga = $item->Harga * $qty;
+        $detailOrder->Status = 'sent';
+        $detailOrder->save();
+      }
+    }
+
     return view('user.confirmed',['idOrder'=>$id]);
   }
 }
