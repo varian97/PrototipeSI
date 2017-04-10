@@ -52,12 +52,9 @@ Route::get('/check', function(){
 	return view('user/checkorder');
 });
 
-Route::post('/orderstatus', function(Request $request){
+Route::post('/orderstatus', 'CheckOrderController@checkOrder');
 
-	//$id = $request->orderid;
-	//$array = array('orderid' => $id);
-	return view('user/orderstatus');
-});
+Route::post('/cancelorder', 'CheckOrderController@Cancelorder');
 
 Route::get('/order', 'OrderController@showOrder');
 Route::post('/order', 'OrderController@returnToOrder');
