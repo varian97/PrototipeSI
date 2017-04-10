@@ -47,9 +47,6 @@ Route::get('/check', function(){
 });
 
 Route::post('/orderstatus', function(Request $request){
-
-	//$id = $request->orderid;
-	//$array = array('orderid' => $id);
 	return view('user/orderstatus');
 });
 
