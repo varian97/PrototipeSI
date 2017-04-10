@@ -1,6 +1,14 @@
 @extends('user._header')
 
+
+
 @section('content')
+
+@if (session('canceled'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+@endif
 
 <section class="hero">
     <div class="caption" background="{{asset('img/hero.jpg')}}">
