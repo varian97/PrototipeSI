@@ -5,8 +5,8 @@
 @section('content')
 
 @if (session('canceled'))
-    <div class="alert alert-success">
-        {{ session('status') }}
+    <div class="alert alert-success" style="margin:auto; width: 20%; text-align: middle;">
+        {{ session('canceled') }}
     </div>
 @endif
 

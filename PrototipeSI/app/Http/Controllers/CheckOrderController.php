@@ -58,7 +58,7 @@ class CheckOrderController extends Controller
     ]);
     $id = (int)$request->orderid;
     if(ModelDetailOrder::OrderCancel($id)){
-      return redirect('check')->with('canceled', 'Order Canceled\n Please Contact Server for Further Information');
+      return redirect('check')->with('canceled', 'Order Canceled Please Contact Server for Further Information');
     }else{
       return redirect('check')->with('canceled', 'There is an Error when Canceling');
     }
