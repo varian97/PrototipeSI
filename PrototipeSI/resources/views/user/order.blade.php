@@ -4,7 +4,7 @@
 
 <section class="hero">
     <div class="caption" background="{{asset('img/hero.jpg')}}">
-      <form method="POST" action="">
+      <form method="POST" action="/confirm">
 
         <br>
         <h3>Foods</h3>
@@ -15,16 +15,20 @@
               <th>Price</th>
               <th>Quantity</th>
             </tr>
-            <tr>
-              <td>Nasi Goreng</td>
-              <td>Rp. 50.000,00</td>
-              <td><input type="number" name="foodQty1" class="qty" value="0"></td>
-            </tr>
-            <tr>
-              <td>Mie Goreng</td>
-              <td>Rp. 40.000,00</td>
-              <td><input type="number" name="foodQty2" class="qty" value="0"></td>
-            </tr>
+            @foreach ($food as $item)
+              <tr>
+                <td>{{$item->Deskripsi}}</td>
+                <td>Rp. {{$item->Harga}}</td>
+                @if($method == 'GET')
+                  <td>{{csrf_field()}}<input type="number" name="{{$item->id}}" class="qty" value="0"></td>
+                @elseif($method == 'POST')
+                  @php
+                    $id = $item->id;
+                  @endphp
+                  <td>{{csrf_field()}}<input type="number" name="{{$item->id}}" class="qty" value="{{$old->$id}}"></td>
+                @endif
+              </tr>
+            @endforeach
           </table>
         </div>
         <br><br>
@@ -36,27 +40,37 @@
               <th>Price</th>
               <th>Quantity</th>
             </tr>
-            <tr>
-              <td>Jus Jeruk</td>
-              <td>Rp. 20.000,00</td>
-              <td><input type="number" name="beverageQty1" class="qty" value="0"></td>
-            </tr>
-            <tr>
-              <td>Jus Pokat</td>
-              <td>Rp. 25.000,00</td>
-              <td><input type="number" name="beverageQty2" class="qty" value="0"></td>
-            </tr>
+            @foreach ($drink as $item)
+              <tr>
+                <td>{{$item->Deskripsi}}</td>
+                <td>Rp. {{$item->Harga}}</td>
+                @if($method == 'GET')
+                  <td>{{csrf_field()}}<input type="number" name="{{$item->id}}" class="qty" value="0"></td>
+                @elseif($method == 'POST')
+                  @php
+                    $id = $item->id;
+                  @endphp
+                  <td>{{csrf_field()}}<input type="number" name="{{$item->id}}" class="qty" value="{{$old->$id}}"></td>
+                @endif
+              </tr>
+            @endforeach
           </table> 
         </div>
         <br><br><br><br>
+        {{csrf_field()}}
         <select name="mejaRuang" class="dropDownLeft">
           <option value="empty">Nomor Meja/Ruang</option>
-          <option value="M01">Meja 01</option>
-          <option value="M02">Meja 02</option>
-          <option value="M03">Meja 03</option>
-          <option value="M04">Meja 04</option>
-          <option value="R01">Ruang 01</option>
-          <option value="R02">Ruang 02</option>
+          @foreach ($mejaruang as $item)
+            @if($method=='GET')
+              <option value="{{$item->No_Meja_Ruang}}">Meja/Ruang {{$item->No_Meja_Ruang}}</option>
+            @elseif($method=='POST')
+              @if($item->No_Meja_Ruang==$old->mejaRuang)
+                <option value="{{$item->No_Meja_Ruang}}" selected="selected">Meja/Ruang {{$item->No_Meja_Ruang}}</option>
+              @else
+                <option value="{{$item->No_Meja_Ruang}}">Meja/Ruang {{$item->No_Meja_Ruang}}</option>
+              @endif
+            @endif
+          @endforeach
         </select>
         <br><br><br><br>
         <div class="centerBtn">

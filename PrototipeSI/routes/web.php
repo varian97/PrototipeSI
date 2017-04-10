@@ -59,22 +59,7 @@ Route::post('/orderstatus', function(Request $request){
 	return view('user/orderstatus');
 });
 
-Route::get('/order', function(){
-	return view('user.order');
-});
-
-Route::get('/confirm', function(){
-	return view('user.confirmorder');
-});
-
-Route::post('/confirm', function(){
-	return view('user.confirmorder');
-});
-
-Route::get('/confirmed', function(){
-	return view('user.confirmed');
-});
-
-Route::post('/confirmed', function(){
-	return view('user.confirmed');
-});
+Route::get('/order', 'OrderController@showOrder');
+Route::post('/order', 'OrderController@returnToOrder');
+Route::post('/confirm', 'OrderController@confirmOrder');
+Route::post('/confirmed', 'OrderController@addOrder');
