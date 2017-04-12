@@ -7,6 +7,7 @@ use App\ModelMakananMinuman;
 use App\ModelMejaRuang;
 use App\ModelOrder;
 use App\ModelDetailOrder;
+use NumberFormatter;
 
 class OrderController extends Controller
 {
@@ -16,6 +17,15 @@ class OrderController extends Controller
     $drink = ModelMakananMinuman::where('Jenis', 'minuman')->get();
     $mejaruang = ModelMejaRuang::all();
     $method = 'GET';
+
+    $fmt = new NumberFormatter( 'id_ID', NumberFormatter::CURRENCY );
+    foreach($food as $item) {
+      $item->Harga = $fmt->formatCurrency($item->Harga, "IDR");
+    }
+    foreach($drink as $item) {
+      $item->Harga = $fmt->formatCurrency($item->Harga, "IDR");
+    }
+
     return view('user.order', ['food'=> $food, 'drink'=>$drink, 'mejaruang'=>$mejaruang, 'method'=>$method]);
   }
 
@@ -24,13 +34,19 @@ class OrderController extends Controller
     $drink = ModelMakananMinuman::where('Jenis', 'minuman')->get();
     $input = $request;
     $total = 0;
+
+    $fmt = new NumberFormatter( 'id_ID', NumberFormatter::CURRENCY );
     foreach ($food as $item) {
       $total = $total + $item->Harga * $request->input(''+$item->id, 0);
+      $item->Harga = $fmt->formatCurrency($item->Harga, "IDR");
     }
     foreach ($drink as $item) {
       $total = $total + $item->Harga * $request->input(''+$item->id, 0);
+      $item->Harga = $fmt->formatCurrency($item->Harga, "IDR");
     }
-    
+
+    $total = $fmt->formatCurrency($total, "IDR");
+
     return view('user.confirmorder', ['food'=>$food, 'drink'=>$drink, 'total'=>$total, 'input'=>$input]);
   }
 

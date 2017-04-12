@@ -4,12 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ModelMakananMinuman;
+use NumberFormatter;
 
 class MenuController extends Controller
 {
   public function showMenu() {
     $food = ModelMakananMinuman::where('Jenis', 'makanan')->get();
     $drink = ModelMakananMinuman::where('Jenis', 'minuman')->get();
+    $fmt = new NumberFormatter( 'id_ID', NumberFormatter::CURRENCY );
+    foreach ($food as $item) {
+      $item->Harga = $fmt->formatCurrency($item->Harga, "IDR");
+    }
+    foreach ($drink as $item) {
+      $item->Harga = $fmt->formatCurrency($item->Harga, "IDR");
+    }
     return view('adminmenu', ['food'=> $food, 'drink'=>$drink]);
   }
 
