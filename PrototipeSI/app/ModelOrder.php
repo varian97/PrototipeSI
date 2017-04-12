@@ -22,9 +22,9 @@ class ModelOrder extends Model
    		$data_array = 	DB::table('order')
    						-> join('detailorder', function($join){
    							$join->select('ID_Detail', 'ID_Makanan_Minuman', 'Jumlah', 'Status')
-   								->join('makananminuman', 'detailorder.ID_Makanan_Minuman', '=', 'makananminuman.id')
    								->join('order.ID_Order', '=', 'detailsorder.ID_Order');
    						})
+   						->join('makananminuman', 'detailorder.ID_Makanan_Minuman', '=', 'makananminuman.id')
    						->get();
 
    		return $data_array;

@@ -44,9 +44,7 @@ Route::delete('/adminmenu/{id}', 'MenuController@deleteMenu');
 Route::get('/adminmenu', 'MenuController@showMenu');
 
 /*customer status*/
-Route::get('/customerStatus', function () {
-    return view('customerStatus');
-});
+Route::get('/customerStatus', 'OrderController@getAllOrder');
 
 Route::get('/check', function(){
 	return view('user/checkorder');

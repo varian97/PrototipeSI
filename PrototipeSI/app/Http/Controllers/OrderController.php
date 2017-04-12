@@ -12,7 +12,7 @@ use NumberFormatter;
 class OrderController extends Controller
 {
   public function showOrder() {
-    //dd(ModelOrder::getAllOrder());
+    dd(ModelOrder::getAllOrder());
     $food = ModelMakananMinuman::where('Jenis', 'makanan')->get();
     $drink = ModelMakananMinuman::where('Jenis', 'minuman')->get();
     $mejaruang = ModelMejaRuang::all();
@@ -103,16 +103,33 @@ class OrderController extends Controller
     return view('user.confirmed',['idOrder'=>$id]);
   }
 
-  public function getOrderStatus(){
+  public function getAllOrder(){
+    $data_array = ModelOrder::getAllOrder();
+    $orders = array();
+    $detailorder = array();    
+    foreach ($data_array as $key => $value) {
+      $detailorder['id'] = $value->ID_Order;
+      $detailorder['room'] = $value->No_Meja_Ruang;
+      $detailorder['paymentstatus'] = $value->paymentstatus;
+      $detailorder['id_detail'] = $value->ID_Detail;
+      $detailorder['total_harga'] = $value->Total_Harga;
+      $detailorder['status'] = $value->Status;
+      $detailorder['jenis'] = $value->Jenis;
+      $detailorder['deskripsi'] = $value->Deskripsi;
+      if(!isset($orders[$data_array[0]->ID_Order])){
+        $orders[$data_array[0]->ID_Order] = array();
+      }
+      array_push($orders[$data_array[0]->ID_Order],$detailorder);
+    }
 
+
+    return view('customerStatus',['orders' => $orders]);
   }
 
-  public function changeOrderStatus(){
-
-  }
-
-  public function changePaymentStatus(){
-
+  public function changePaymentStatus(Request $request){
+    $id = $request->id;
+    $paymentstatus = $request->paymentstatus;
+    ModelOrder::changePaymentStatus($id, $paymentstatus);
   }
 
 

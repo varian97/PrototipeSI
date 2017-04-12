@@ -63,4 +63,11 @@ class CheckOrderController extends Controller
       return redirect('check')->with('canceled', 'There is an Error when Canceling');
     }
   }
+
+  public function changeOrderStatus(Request $request){
+    $id = $request->id_detail;
+    $status = $request->status;
+    ModelDetailOrder::changeDetailOrderStatus($id, $status);
+  }
+
 }
