@@ -45,7 +45,7 @@ class OrderController extends Controller
     }
 
     $total = $fmt->formatCurrency($total, "IDR");
-    
+
     return view('user.confirmorder', ['food'=>$food, 'drink'=>$drink, 'total'=>$total, 'input'=>$input]);
   }
 
