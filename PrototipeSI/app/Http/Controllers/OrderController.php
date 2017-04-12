@@ -12,7 +12,7 @@ use NumberFormatter;
 class OrderController extends Controller
 {
   public function showOrder() {
-    dd(ModelOrder::getAllOrder());
+    //dd(ModelOrder::getAllOrder());
     $food = ModelMakananMinuman::where('Jenis', 'makanan')->get();
     $drink = ModelMakananMinuman::where('Jenis', 'minuman')->get();
     $mejaruang = ModelMejaRuang::all();
@@ -106,31 +106,47 @@ class OrderController extends Controller
   public function getAllOrder(){
     $data_array = ModelOrder::getAllOrder();
     $orders = array();
-    $detailorder = array();    
+    $detailorder = array();
     foreach ($data_array as $key => $value) {
       $detailorder['id'] = $value->ID_Order;
       $detailorder['room'] = $value->No_Meja_Ruang;
       $detailorder['paymentstatus'] = $value->paymentstatus;
       $detailorder['id_detail'] = $value->ID_Detail;
+      $detailorder['jumlah'] = $value->Jumlah;
       $detailorder['total_harga'] = $value->Total_Harga;
       $detailorder['status'] = $value->Status;
       $detailorder['jenis'] = $value->Jenis;
       $detailorder['deskripsi'] = $value->Deskripsi;
-      if(!isset($orders[$data_array[0]->ID_Order])){
-        $orders[$data_array[0]->ID_Order] = array();
+      if(!isset($orders[$data_array[$key]->ID_Order])){
+        $orders[$data_array[$key]->ID_Order] = array();
       }
-      array_push($orders[$data_array[0]->ID_Order],$detailorder);
+      array_push($orders[$data_array[$key]->ID_Order],$detailorder);
     }
-
 
     return view('customerStatus',['orders' => $orders]);
   }
 
   public function changePaymentStatus(Request $request){
-    $id = $request->id;
-    $paymentstatus = $request->paymentstatus;
-    ModelOrder::changePaymentStatus($id, $paymentstatus);
+    //$id = $request->id;
+    //$paymentstatus = $request->paymentstatus;1
+    //ModelOrder::changePaymentStatus($id, $paymentstatus);
+    $detailorder = ModelDetailOrder::all();
+    foreach ($detailorder as $item) {
+      $name = 'd' . $item->ID_Detail;
+      //dd($name);
+      $item->Status = $request->$name;
+      $item->save();
+    }
+    $order = ModelOrder::all();
+    foreach ($order as $item) {
+      $name = ('o' . $item->ID_Order);
+      if ($request->$name == 'Paid') {
+        $item->paymentstatus = 1;
+      } else if ($request->$name == 'Not Paid') {
+        $item->paymentstatus = 0;
+      }
+      $item->save();
+    }
+    return redirect('customerStatus');
   }
-
-
 }

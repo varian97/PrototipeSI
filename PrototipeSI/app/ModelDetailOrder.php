@@ -8,6 +8,7 @@ use DB;
 class ModelDetailOrder extends Model
 {
   protected $table = 'DetailOrder';
+  protected $primaryKey = 'ID_Detail';
   public static function getOrderStatusWithID($id)
   {
     //$table = array();
@@ -46,6 +47,6 @@ class ModelDetailOrder extends Model
   {
   	DB::table('detailorder')
   	->where('detailorder.ID_ORDER', '=', $id)
-  	->update(['Status'] => $status);
+  	->update(['Status'=> $status] );
   }
 }

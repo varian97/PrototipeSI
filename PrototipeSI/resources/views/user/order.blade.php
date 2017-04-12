@@ -9,7 +9,7 @@
         <br>
         <h3>Foods</h3>
         <div class = "menuTable">
-          <table>
+          <table style="text-align:center !important;">
             <tr>
               <th>Name</th>
               <th>Price</th>
@@ -54,7 +54,7 @@
                 @endif
               </tr>
             @endforeach
-          </table> 
+          </table>
         </div>
         <br><br><br><br>
         {{csrf_field()}}

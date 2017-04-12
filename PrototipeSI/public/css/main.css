@@ -301,21 +301,24 @@ tr:nth-child(odd){background-color: #717a72;}
 th {
     background-color: #4CAF50;
     color: white;
+    margin: auto;
 }
 
 /* order menu */
+
 .menuTable{
   margin:auto;
   width:60%;
-  font-size: 30px;
+  font-size:20px;
 }
+
 .qty {
   margin:auto;
   width:20%;
   text-align: center;
 }
 .orderBtn {
-  font-size: 30px;
+  font-size: 20px;
   margin-left:20%;
   margin-right:20%;
   width:100%;

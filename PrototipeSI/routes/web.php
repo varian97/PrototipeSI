@@ -58,3 +58,6 @@ Route::get('/order', 'OrderController@showOrder');
 Route::post('/order', 'OrderController@returnToOrder');
 Route::post('/confirm', 'OrderController@confirmOrder');
 Route::post('/confirmed', 'OrderController@addOrder');
+
+
+Route::post('/updateOrderStatus', 'OrderController@changePaymentStatus');
