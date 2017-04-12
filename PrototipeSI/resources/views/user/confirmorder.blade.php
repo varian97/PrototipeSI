@@ -22,7 +22,7 @@
             @if($input->$id > 0)
               <tr>
                 <td>{{$item->Deskripsi}}</td>
-                <td>Rp. {{$item->Harga}}</td>
+                <td>{{$item->Harga}}</td>
                 <td>{{$input->$id}}</td>
               </tr>
             @endif
@@ -45,7 +45,7 @@
             @if($input->$id > 0)
               <tr>
                 <td>{{$item->Deskripsi}}</td>
-                <td>Rp. {{$item->Harga}}</td>
+                <td>{{$item->Harga}}</td>
                 <td>{{$input->$id}}</td>
               </tr>
             @endif
@@ -53,7 +53,7 @@
         </table> 
       </div>
       <br><br>
-      <p style="font-size: 50px; color: #FFFFFF">Total Harga: Rp. {{$total}}</p>
+      <p style="font-size: 50px; color: #FFFFFF">Total Harga: {{$total}}</p>
       <p style="font-size: 50px; color: #FFFFFF">Nomor Meja/Ruang : Meja/Ruang {{$input->mejaRuang}}</p>
       <br><br><br><br>
 

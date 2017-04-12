@@ -18,7 +18,7 @@
             @foreach ($food as $item)
               <tr>
                 <td>{{$item->Deskripsi}}</td>
-                <td>Rp. {{$item->Harga}}</td>
+                <td>{{$item->Harga}}</td>
                 @if($method == 'GET')
                   <td>{{csrf_field()}}<input type="number" name="{{$item->id}}" class="qty" value="0"></td>
                 @elseif($method == 'POST')
@@ -43,7 +43,7 @@
             @foreach ($drink as $item)
               <tr>
                 <td>{{$item->Deskripsi}}</td>
-                <td>Rp. {{$item->Harga}}</td>
+                <td>{{$item->Harga}}</td>
                 @if($method == 'GET')
                   <td>{{csrf_field()}}<input type="number" name="{{$item->id}}" class="qty" value="0"></td>
                 @elseif($method == 'POST')
