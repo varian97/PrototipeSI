@@ -3,7 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
-
+use DB;
 /*
 SELECT 
     * 
@@ -16,4 +16,26 @@ ON
 class ModelOrder extends Model
 {
     protected $table = 'Order';
+
+   	public static function getAllOrder()
+   	{
+   		$data_array = 	DB::table('order')
+   						-> join('detailorder', function($join){
+   							$join->select('ID_Detail', 'ID_Makanan_Minuman', 'Jumlah', 'Status')
+   								->join('makananminuman', 'detailorder.ID_Makanan_Minuman', '=', 'makananminuman.id')
+   								->join('order.ID_Order', '=', 'detailsorder.ID_Order');
+   						})
+   						->get();
+
+   		return $data_array;
+   	}
+
+   	public static function changePaymentStatus($id, $status)
+   	{
+   		DB::table('order')
+   		->where('id', $id)
+   		->update(['paymentstatus' => $status]);
+   	}
+
+
 }

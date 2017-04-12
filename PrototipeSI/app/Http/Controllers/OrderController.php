@@ -11,6 +11,7 @@ use App\ModelDetailOrder;
 class OrderController extends Controller
 {
   public function showOrder() {
+    //dd(ModelOrder::getAllOrder());
     $food = ModelMakananMinuman::where('Jenis', 'makanan')->get();
     $drink = ModelMakananMinuman::where('Jenis', 'minuman')->get();
     $mejaruang = ModelMejaRuang::all();
@@ -51,7 +52,7 @@ class OrderController extends Controller
     //$order->No_Meja_Ruang = $request->mejaRuang;
     //$order->save();
 
-    $id = ModelOrder::insertGetId(array('No_Meja_Ruang' => $request->mejaRuang,));
+    $id = ModelOrder::insertGetId(array('No_Meja_Ruang' => $request->mejaRuang, 'paymentstatus' => false));
 
     //$idOrder = $order->ID_Order;
 
@@ -65,7 +66,7 @@ class OrderController extends Controller
         $detailOrder->ID_Makanan_Minuman = $item->id;
         $detailOrder->Jumlah = $qty;
         $detailOrder->Total_Harga = $item->Harga * $qty;
-        $detailOrder->Status = 'sent';
+        $detailOrder->Status = 'Accepted';
         $detailOrder->save();
       }
     }
@@ -78,11 +79,25 @@ class OrderController extends Controller
         $detailOrder->ID_Makanan_Minuman = $item->id;
         $detailOrder->Jumlah = $qty;
         $detailOrder->Total_Harga = $item->Harga * $qty;
-        $detailOrder->Status = 'sent';
+        $detailOrder->Status = 'Accepted';
         $detailOrder->save();
       }
     }
 
     return view('user.confirmed',['idOrder'=>$id]);
   }
+
+  public function getOrderStatus(){
+
+  }
+
+  public function changeOrderStatus(){
+
+  }
+
+  public function changePaymentStatus(){
+
+  }
+
+
 }

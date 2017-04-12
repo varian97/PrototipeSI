@@ -13,6 +13,7 @@ class Order extends Migration
 
           $table->unsignedInteger('No_Meja_Ruang');
           $table->foreign('No_Meja_Ruang')->references('No_Meja_Ruang')->on('MejaRuang');
+          $table->boolean('paymentstatus');
 
           $table->timestamps();
       });

@@ -41,4 +41,11 @@ class ModelDetailOrder extends Model
 		return false;
 	}
   }
+
+  public static function changeDetailOrderStatus($id, $status)
+  {
+  	DB::table('detailorder')
+  	->where('detailorder.ID_ORDER', '=', $id)
+  	->update(['Status'] => $status);
+  }
 }

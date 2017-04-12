@@ -19,7 +19,6 @@ class MenuController extends Controller
   }
 
   public function editMenu(Request $request, $id) {
-    //$editItem = ModelMakananMinuman::find($id);
     $editItem = ModelMakananMinuman::where('id', $id)->first();
     $editItem->Harga = $request->price;
     $editItem->Deskripsi = $request->foodname;
